@@ -21,7 +21,7 @@ Adapted from janskuba's `outbound-agents` repo (github.com/janskuba/outbound-age
 
 ## Intended Integrations (not live in this demo)
 
-- **A data-enrichment provider** (Clay, or a similar waterfall tool) would populate and verify the fit fields, employee count, industry classification, detected tech stack, instead of relying on whatever `signal-harvest` already captured at ingestion.
+- **An enrichment waterfall** would populate and verify the fit fields, employee count, industry classification, detected tech stack, instead of relying on whatever `signal-harvest` already captured at ingestion. In production that waterfall is **Prospeo** for email discovery, **Apollo** for contact and company data, and **Floqer** for the enrichment orchestration and fallback across providers, cheapest reliable source first, escalating only when a field comes back empty.
 - **A LinkedIn or social-data API** would feed the engagement fields directly, posting frequency, recent activity, engagement counts, instead of this skill scoring off whatever public detail already happens to be in the batch.
 - **`system-of-record-sync`** owns the actual write-back. The tier decision and category breakdown this skill produces don't get written to the lead record directly, that's the single-writer pattern this repo's `CLAUDE.md` describes. This skill hands off a scored, tiered lead; the write, with its one-line reason, happens downstream.
 - None of these are wired into this repo. This is a demonstration of the scoring and gating logic against the fixture batch in `context/example-leads.md`, not a live pipeline.

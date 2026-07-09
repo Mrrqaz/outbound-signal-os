@@ -31,7 +31,7 @@ Everything past classification in this skill, the cross-channel auto-pause on a 
 
 ## Step 1: Read the Reply and Match It to a Lead
 
-Take the reply as given, pasted text, an exported thread, or a webhook payload. Note the channel it arrived on (email, LinkedIn, WhatsApp), the timestamp, and the full reply text, not just a snippet.
+Take the reply as given, pasted text, an exported thread, or a webhook payload. Note the channel it arrived on (email, LinkedIn, WhatsApp, SMS), the timestamp, and the full reply text, not just a snippet.
 
 Match the reply to an existing lead record using the same identity rule `system_of_record.md` uses everywhere else in this repo: a stable identifier (domain, or the outreach thread the reply is attached to) beats a fuzzy one (a name match). If no confident match exists, flag it and stop here rather than guessing, a misattributed reply can suppress or book the wrong company.
 

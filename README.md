@@ -88,12 +88,13 @@ Every skill states its intended integrations, the real tools it would connect to
 
 | Category | Tools named |
 |---|---|
-| Signal sourcing | Apify or a job-board API, a funding-database API, a companies-house-style registry |
-| Research | Exa, Tavily, Firecrawl, a WebSearch/web-research MCP |
-| Enrichment | Clay or a similar waterfall provider, a LinkedIn/social-data API |
-| Outreach send | Unipile (LinkedIn), Smartlead/Instantly (email), a WhatsApp Business API |
-| CRM / system of record | A NocoDB- or Airtable-style structured database |
-| Cost / experimentation | A paid enrichment/LLM research provider (gated), GrowthBook, scipy.stats/statsmodels |
+| Orchestration / runtime | Claude Code (System Pack surface), Hermes (AI Employee runtime), Modal (hosted deterministic Layer-3 jobs) |
+| Signal sourcing | Apify (job-board and career-page actors), a funding-database API, a companies-house-style registry |
+| Research | Exa or Tavily (semantic search), Apify or Firecrawl (page extraction), a WebSearch/web-research MCP |
+| Enrichment waterfall | Prospeo (email discovery), Apollo (contact/company data), Floqer (orchestration/fallback) |
+| Outreach send | Unipile + HeyReach (LinkedIn API + campaign runner), SmartLead (email), a WhatsApp Business API, Twilio (SMS/voice follow-ups), Supermeme.ai (meme follow-ups) |
+| CRM / system of record | NocoDB (structured database) |
+| Cost / experimentation | Apollo/Clay-style enrichment providers and an LLM research provider (gated), GrowthBook or equivalent, scipy.stats/statsmodels |
 | Booking | Google Calendar or Cal.com |
 
 ## Repo structure

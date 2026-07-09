@@ -22,10 +22,10 @@ Outreach copy that never gets tested never improves past a guess, and a test tha
 
 ## Intended Integrations (not live in this demo)
 
-- **GrowthBook** (open-source experimentation platform) would own the actual sequential significance testing and guardrail-metric alerting in Steps 2 and 3, instead of this skill reasoning through a lookup table by hand.
+- **An experimentation platform** (GrowthBook, or an equivalent open-source significance-testing service) would own the actual sequential significance testing and guardrail-metric alerting in Steps 2 and 3, instead of this skill reasoning through a lookup table by hand.
 - **scipy.stats / statsmodels** would run the real two-proportion significance test behind a "cleared the gate" call, rather than the directional read this skill produces from raw counts.
-- **The send platform** (Smartlead, Instantly, or whatever `outreach-draft-and-send` is wired to) would be the live source of per-variant reply counts, instead of a pasted or manually pulled batch.
-- **A shared learnings log** (a Notion database or Airtable base, mirroring the persistence pattern in claude-reflect-system and claude-self-improving-skills) would hold every test's Pattern field as a queryable table, instead of the flat `context/learnings-log.md` file this skill appends to here.
+- **The send platforms** (SmartLead for email, HeyReach/Unipile for LinkedIn, Twilio for SMS/voice, or whatever `outreach-draft-and-send` is wired to) would be the live source of per-variant reply counts, instead of a pasted or manually pulled batch.
+- **A shared learnings log** (a NocoDB base, mirroring the persistence pattern in claude-reflect-system and claude-self-improving-skills) would hold every test's Pattern field as a queryable table, instead of the flat `context/learnings-log.md` file this skill appends to here.
 - None of these are wired into this repo. This demo runs on whatever batch of send results is pasted or exported, and states plainly when a step depends on an integration it does not have.
 
 ## Step 1: Pull the Variant Set and Confirm the Test Design

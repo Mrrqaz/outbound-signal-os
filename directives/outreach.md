@@ -19,8 +19,10 @@ Turn a research dossier into personalized outreach drafts across the channels th
 
 ## Channel notes
 
-- **LinkedIn / email**: primary channels for most leads; can carry a screenshot, a proof link, or a resource offer alongside the message text.
+- **LinkedIn / email**: primary channels for most leads; can carry a screenshot, a proof link, or a resource offer alongside the message text. In production LinkedIn runs on Unipile (send + reply read-back) with HeyReach as the campaign runner sequencing multi-step touches at account-safe limits; email runs on SmartLead.
 - **WhatsApp**: used sparingly, mainly where a prior touch established some relationship or the lead's context makes it appropriate; never the first-touch channel by default.
+- **SMS / voice (Twilio)**: later-touch nudge and callback channel, used only after a lead has already been contacted and the context supports it; never a cold first touch.
+- **Meme follow-up (Supermeme.ai)**: a signal-matched, personalized meme used as a warm-lead nudge on a lead already in a sequence; tied to what research actually found on the lead, never a cold opener and never decoration.
 - **Resource offer**: a short, specific, useful artifact (not a generic PDF) offered only when the dossier genuinely supports one being useful to this lead; skipped when it would read as homework.
 
 ## What this directive does not cover

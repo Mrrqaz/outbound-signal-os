@@ -22,8 +22,9 @@ A lead that reaches outreach on one signal alone gets a generic pitch. "I saw yo
 
 ## Intended Integrations (not live in this demo)
 
-- **Exa or Tavily** would power the semantic search behind Step 2's signals-and-timing and company-intelligence dimensions, finding funding mentions, news, and leadership changes instead of relying on whatever is pasted in.
-- **Firecrawl** would extract clean page content from a company site or press release once a candidate source URL is found, so the proof-URL requirement in Step 5 points at real, parseable content.
+- **A semantic web-research provider** (Exa, Tavily, or an equivalent) would power the search behind Step 2's signals-and-timing and company-intelligence dimensions, finding funding mentions, news, and leadership changes instead of relying on whatever is pasted in.
+- **A page-extraction tool** (Apify's actors, Firecrawl, or an equivalent) would pull clean page content from a company site or press release once a candidate source URL is found, so the proof-URL requirement in Step 5 points at real, parseable content.
+- **An enrichment waterfall** (**Prospeo** for email discovery, **Apollo** for contact and company data, **Floqer** orchestrating the fallback across providers) would fill Step 2's org/people-mapping dimension, verifying the contact, role, and reachable path the route recommendation in Step 6 depends on, instead of scoring off whatever public detail already happens to be on the record.
 - **A WebSearch/web-research MCP** would do the general query fan-out this skill's four dimensions need, across job boards, funding databases, and LinkedIn activity.
 - **A CRM/system-of-record read** (the sync target of `directives/system_of_record.md`) would power Step 2's account-state dimension, so research never starts blind on a lead the system has already touched.
 - **A spend-tracking hook** (`directives/cost_control.md`'s per-lead cumulative spend log) would record this stage's research cost against the lead's running total the moment a paid tool actually ran, so spend-proportional-to-quality stays measurable, not just budget-within-range.

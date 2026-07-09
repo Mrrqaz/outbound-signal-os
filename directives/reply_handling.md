@@ -13,7 +13,7 @@ Every reply gets one label: `positive_interested`, `positive_soft`, `positive_re
 
 ## Cross-channel suppression (non-negotiable)
 
-A hard-negative (`negative_hostile`) or opt-out (`unsubscribe`) signal on **any** channel suppresses outreach on **every** channel for that lead: not just the channel it arrived on. A lead doesn't experience this system as five separate channels; they experience it as one entity contacting them, and a hard no on one channel is a hard no, period. This directive exists because an early version of this system missed exactly this case. See `context/decisions-log.md`, 2026-06-28.
+A hard-negative (`negative_hostile`) or opt-out (`unsubscribe`) signal on **any** channel suppresses outreach on **every** channel for that lead: not just the channel it arrived on. A lead doesn't experience this system as a set of separate channels; they experience it as one entity contacting them, and a hard no on one channel is a hard no, period. This directive exists because an early version of this system missed exactly this case. See `context/decisions-log.md`, 2026-06-28.
 
 `negative_notnow` and `negative_notfit` are soft negatives: they pause outreach on this lead but do not suppress every channel and do not block the lead from re-entering the pipeline later if a strong new signal appears.
 

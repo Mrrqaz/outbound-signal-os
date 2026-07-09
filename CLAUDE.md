@@ -26,6 +26,14 @@ Controls: **CRM stays current** (`system-of-record-sync`), **Cost control** (`sp
 
 See `README.md` for the full architecture diagram, the skill table, and exactly which real public Claude Code skill pattern each stage was adapted from.
 
+## Runtime and deployment (stated, not wired)
+
+The three layers above describe where the logic lives. Two runtime choices describe where it would actually run in production, stated here the same way every integration is: named, not wired.
+
+- **Claude Code is the orchestration surface.** In a System Pack build, the client's own agentic OS (Claude Code, or a portable equivalent) reads the directives, runs the skills, and calls the execution scripts, exactly the shape this repo is organized in.
+- **Modal carries the deterministic Layer-3 jobs.** The `executions/` scripts are the kind of small, deterministic work that shouldn't be re-reasoned by an LLM every run (an ICP scoring pass, a spend-gate check, a batched enrichment call). In production those run as hosted Modal jobs on a schedule or a trigger, so the mechanical flow is cheap, fast, and doesn't spend tokens, while the AI layer orchestrates, monitors, and handles exceptions. Nothing in this repo is deployed to Modal; the scripts run locally on fixture data.
+- **Hermes is the AI Employee runtime route.** For a buyer who wants the outbound role handled without operating the AI layer themselves, the same directives and skills run inside a Hermes-style autonomous employee runtime instead of the client's own agentic OS. The control surface changes; the layered logic, the approval gate, and the single-writer record discipline do not. That is the "AI Employee vs System Pack" route choice, represented here at the architecture level only.
+
 ## Operating principles
 
 1. **Evidence before spend.** Every paid step (enrichment, deep research) sits behind a cheap deterministic pre-check. This mirrors a real fix I shipped in the production system: a research-readiness gate that only re-checks fit for leads that never had a real qualification decision, not leads that already cleared one upstream.
